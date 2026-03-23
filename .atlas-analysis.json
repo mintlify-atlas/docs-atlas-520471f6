@@ -1,0 +1,72 @@
+{
+  "projectType": "saas",
+  "projectName": "LinkedIn Intel Pro",
+  "projectDescription": "A Chrome extension that turns LinkedIn profiles and company pages into actionable AI-powered intelligence, with warm path discovery and strategic engagement planning.",
+  "theme": "palm",
+  "primaryColor": "#94cb04",
+  "lightColor": "#545454",
+  "darkColor": null,
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["introduction", "quickstart"]
+          },
+          {
+            "group": "Core Features",
+            "pages": [
+              "features/profile-analysis",
+              "features/intel-map",
+              "features/export-history"
+            ]
+          },
+          {
+            "group": "Configuration",
+            "pages": [
+              "configuration/installation",
+              "configuration/ai-providers",
+              "configuration/settings"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": [
+              "reference/architecture",
+              "reference/permissions",
+              "reference/faq"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "AI-powered LinkedIn profile analysis tailored to specific goals (sales, hiring, fundraising, partnerships)",
+    "Intel Map for company-level strategic engagement planning",
+    "Warm path discovery — surfaces introduction routes through your analyzed network",
+    "Multi-provider LLM support: OpenAI, Anthropic, and Google Gemini",
+    "Deep profile scraping: work history, education, skills, recommendations, recent posts, and mutual connections",
+    "Auto-save and exportable reports in Markdown format",
+    "Background service worker pipeline — analysis continues even when side panel is closed",
+    "Company enrichment — automatically scrapes employer pages for richer context"
+  ],
+  "publicApiSurface": [
+    "chrome.runtime message: startAnalysis — triggers profile analysis pipeline",
+    "chrome.runtime message: getJobStatus — polls current analysis job state",
+    "chrome.runtime message: clearJob — resets analysis job to idle",
+    "chrome.runtime message: startIntelMap — triggers company intel map pipeline",
+    "chrome.runtime message: getIntelJobStatus — polls intel map job state",
+    "chrome.runtime message: clearIntelJob — resets intel map job to idle",
+    "content/scrape.js — extracts profile data (name, headline, experience, education, skills, about, recommendations)",
+    "content/scrape-experience.js — detailed experience page scraper",
+    "content/scrape-company.js — company about page scraper (name, industry, size, HQ, description)",
+    "content/scrape-company-people.js — company employees list scraper",
+    "content/scrape-posts.js — recent original posts scraper",
+    "content/scrape-mutual-connections.js — mutual connections scraper",
+    "chrome.storage.sync: provider, model, apiKeys — AI provider configuration",
+    "chrome.storage.local: savedReports — persisted analysis and intel map reports"
+  ]
+}
